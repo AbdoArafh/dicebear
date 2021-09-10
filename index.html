@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiceBear</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <style>
+        img {
+            display: block;
+            width: 90vmin
+        }
+
+        #url {
+            color: grey;
+            margin: 1rem;
+        }
+
+        /* input {
+            height: 2em;
+            border-radius: 3px;
+            width: 50vmin;
+        }
+
+        select {
+            height: 2em;
+            margin: 1em;
+            width: 30vmin;
+            border-style: none;
+            border-radius: 3px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <select class="form-select" v-model="sprite" @change="generateUrl">
+                    <option v-for="s in sprites" :value="s" v-text="s"></option>
+                </select>
+            </div>
+            <input class="form-control form-control-md text-center" placeholder="Your Custom Seed" type="text"
+                v-model="seed" @input="generateUrl">
+        </div>
+        <center>
+            <img :src="url">
+            <div id="url" v-text="url"></div>
+        </center>
+    </div>
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
